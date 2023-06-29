@@ -12,29 +12,21 @@ const app = express();
 app.use(express.json());
 -app.use(express.urlencoded({ extended: false }));
 app.use(
-  cors()
+  cors({
+  origin: ["http://localhost:3000", "https://task-manager-app.onrender.com"],
+})
 );
 
-// {
-//   origin: ["http://localhost:3000", "https://task-manager-app.onrender.com"],
-// }
+
 
 app.use("/api/tasks", taskRoutes);
 
 
-// Deploying to Heroku
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
-  app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html'));
-  });
-} else {
   // Routes
   app.get('/', (req, res) => {
   res.send('Home Page');
 }); 
 
-}
 
 const PORT = process.env.PORT || 5000;
 mongoose
