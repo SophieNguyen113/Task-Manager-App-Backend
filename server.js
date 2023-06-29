@@ -13,7 +13,7 @@ app.use(express.json());
 -app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-  origin: ["http://localhost:3000", "https://task-manager-app.onrender.com"],
+  origin: ["http://localhost:3000", "https://task-manager-app-0upx.onrender.com"],
 })
 );
 
