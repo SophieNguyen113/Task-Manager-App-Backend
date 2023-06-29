@@ -24,7 +24,7 @@ app.use("/api/tasks", taskRoutes);
 
   // Routes
   app.get('/', (req, res) => {
-  res.send('Home Page');
+  res.send('Server is running...');
 }); 
 
 
